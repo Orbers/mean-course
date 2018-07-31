@@ -6,12 +6,12 @@ const postsRoutes = require("./routes/posts");
 
 const app = express();
 
-mongoose.connect("mongodb+srv://test123:b6xzyRqdpenuSpV4@cluster0-mm5af.mongodb.net/node-angular?retryWrites=true", { useNewUrlParser: true })
+mongoose.connect('mongodb://localhost:27017/mean', { useNewUrlParser: true })
   .then(() => {
     console.log('Connected do database!');
   })
-  .catch(() => {
-    console.log('Connection failed!');
+  .catch('error', (error) => {
+    console.log('Connection failed!', error);
   });
 
 app.use(bodyParser.json());
